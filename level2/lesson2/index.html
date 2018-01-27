@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Girl Force - Level 2 Lessons</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><b>Level 2 - Lesson 2</b><br><i>C# Fundamentals</i></li>
+					<li><a href="#welcome">Lesson Summary</a></li>
+					<li><a href="#debugging">Debugging</a></li>
+					<li><a href="#types">More Variable Types</a></li>
+					<li><a href="#converting">Converting Variable Types</a></li>
+					<li><a href="#scope">Scope</a></li>
+					<li><a href="#comparison">Comparison Operators</a></li>
+					<li><a href="#loops">Looping Logic</a></li>
+					<li><a href="#homework">Homework</a></li>
+					<li><a href="../../#level2">Back to Lesson Directory</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+			<!-- Lesson Summary -->
+			<section id="welcome" class="wrapper style2">
+				<div class="inner">
+					<h2>Lesson 2: C# Fundamentals</h2>
+					<p>Last time, we started learning the absolute basics of the C# programming language, covering how to create a new
+						console applicaition in our IDEs, how to receive and store text input from the user and how to dsiplay different
+						messages depending on that input. Today we will be expanding on that base by learning more fundamental C# skills
+						such as:
+					</p>
+					<li><a href="#debugging">An introduction to important debugging skills, like how to run our code one line at a time
+						to see what it is doing
+					</a></li>
+					<li><a href="#types">More variable types that will let us store numerical values, conditional values and more</a></li>
+					<li><a href="#converting">How to convert values from one type to another</a></li>
+					<li><a href="#scope">The lifespan, or "scope" of our variables</a></li>
+					<li><a href="#comparison">More comparison operators (in addition to '==') that will allow us to write more interesting
+						conditions
+					</a></li>
+					<li><a href="#loops">How to make sections of our code repeat or "loop" without writing them multiple times</a></li>
+					<br><p>We will continue writing our code as a text adventure as we learn these skills. You can either expand upon the
+						adventure game that you wrote for the previous lesson's homework or start a new one as you see fit.
+					</p>
+				</div>
+			</section>
+	
+			<!-- Debugging -->
+			<section id="debugging" class="wrapper style3">
+				<div class="inner">
+					<h2>Debugging Our Programs</h2>
+					<p>As our programs become more and more complex as we introduce more variables and conditional behaviour, it becomes
+						increasingly difficult to accurately understand what our program will do simply by reading the code. Very often,
+						need to pause the program and let it run line by line so that we can see exactly what it's doing and why.
+					</p>
+					<p>This is where our IDE's debugging tools come in handy. Most IDEs allow you to set something called a "breakpoint"
+						on any given statement in your program. When you run your program after setting a breakpoint on a statement in
+						your code, your program will freeze until you allow it to continue. You decide at this point whether to allow
+						the program to continue as normal or whether to step through it one statement at a time.
+					</p>
+					<p>To set a breakpoint, first find the line of code that you want the program to pause on and click here in Visual
+						Studio:
+					</p>
+					<b><i>TODO: Add screenshot</i></b>
+					<p>Or here is MonoDevelop:
+					</p>
+					<b><i>TODO: Add screenshot</i></b>
+					<p>A red dot will appear next to the line to indicate that the breakpoint has been set.
+					</p>
+					<b><i>TODO: Add screenshots</i></b>
+					<p>Now, run your program and play through it until the point where you set your breakpoint. Your program should now
+						pause and you will be automatically be returned to your IDE with the current line of code highlighted. Notice
+						that while your program is paused via the debugger, you can hover your mouse over any variables you have set
+						to see what their current value is.
+					</p>
+					<p>Your debugger will have a number of buttons that allow you to control the flow of your program while it is paused.
+						These buttons will include the options to "continue", "step over", "step into" and "step out". The exact names
+						of these features may vary from one IDE to another, and most IDEs will also include other features not listed here
+						(though these four are the most important ones). "Continue" will allow you to unpause the program and continue
+						running it as normal, while "step over" runs the current line of code only, steps to the next statement and pauses
+						again. This is an extremely useful feature for understanding the flow of your program as the computer sees it.
+					</p>
+					<p>The locations of the "continue" and "step over" buttons are shown below, circled in green and blue respectively. We
+						will discuss the "step into" and "step out" features in a later lesson.
+					</p>
+					<b><i>TODO: Add screenshots</i></b>
+				</div>
+			</section>
+	
+			<!-- More Variable Types -->
+			<section id="types" class="wrapper style2">
+				<div class="inner">
+					<h2>More Variable Types</h2>
+					<p>In the previous lesson we learned how to create <i>string</i>-type variables, which store text data. However, there
+						is a fairly strict limit to how much we can do with only strings. For example, it is not possible to perform
+						mathematical operations with string values; if we have a string variable with a value "256", the computer
+						understands that to be a series of characters: '2', '5' and '6'. It does not see it as the numerical value of two
+						hundred and fifty six. It it important to develop a knowledge of a variety of variable types and an understanding
+						of what types to use in a given situation.</p>
+					<h3>Numerical Variable Types</h3>
+					<li>int</li>
+					<li>double</li>
+					<li>float</li>
+
+					<br><h3>Other Variable Types</h3>
+					<li>char</li>
+					<li>bool</li>
+				</div>
+			</section>
+
+			<!-- Converting Variable Types -->
+			<section id="converting" class="wrapper style3">
+				<div class="inner">
+					<h2>Converting Variable Types</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+				</div>
+			</section>
+	
+			<!-- Scope -->
+			<section id="scope" class="wrapper style2">
+				<div class="inner">
+					<h2>Scope</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+				</div>
+			</section>
+
+			<!-- Comparison Operators -->
+			<section id="comparison" class="wrapper style3">
+				<div class="inner">
+					<h2>Comparison Operators</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+					<li>==, !=, >, <, >=, <=</li>
+					<li>'toUpper' and 'toLower' for string comparisons</li>
+				</div>
+			</section>
+	
+			<!-- Loops -->
+			<section id="loops" class="wrapper style2">
+				<div class="inner">
+					<h2>Looping Logic</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+					<li>"while" loop</li>
+					<li>"do while" loop</li>
+					<li>"break" and "continue" statements</li>
+				</div>
+			</section>
+
+			<!-- Homework -->
+			<section id="homework" class="wrapper style3">
+				<div class="inner">
+					<h2>Homework</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+				</div>
+			</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Girl Force 2018. All rights reserved.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
