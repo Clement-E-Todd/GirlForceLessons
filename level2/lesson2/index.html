@@ -119,13 +119,65 @@
 						hundred and fifty six. It it important to develop a knowledge of a variety of variable types and an understanding
 						of what types to use in a given situation.</p>
 					<h3>Numerical Variable Types</h3>
-					<li>int</li>
-					<li>double</li>
-					<li>float</li>
+					<p>Mathematical operations are very commonly needed when writing a program, so our numerical variable types will be
+						used very frequently. The three numerical types that we will dicuss for now are <i>int</i>, <i>float</i> and
+						<i>double</i>.
+					</p>
+					<p>An <i><b>int</b></i> (or integer) variable can store whole numbers, both positive an negative. <i>int</i> variables are
+						very handy when keeping track of information like a player's score or the number of treasures that they have
+						found, as these numbers would typically never require partial values (for example, the player can't find half
+						of a treasure). We can declare a new <i>int</i> variable the same way that we declare a <i>string</i> variable,
+						but we replace the word 'string' with 'int':
+						<br><code>int score = 0;</code>
+					</p>
+					</p>
+					<p>When we need to store decimal information, we can use either a <i><b>float</b></i>-type variable or a <i><b>double</b></i>-type
+						variable. The main difference between these two variable types is that a <i>double</i> takes twice as much memory
+						as a <i>float</i>. This allows a <i>double</i> to be significantly more precise that a <i>float</i> when it comes
+						to decimal numbers with a large number of digits after the period, but because it takes more of our computer's
+						resources it should only be used when that precision is needed. We can declare a new <i>double</i> like so:
+						<br><code>double pi = 3.1415;</code>
+						<br>However, this will not work for float values. We will get an error if we attempt to assign a float value like
+						this:
+						<br><code>float pi = 3.1415;</code>
+						<br>This is because when we write a decimal number in C#, the computer will assume that it is a <i>double</i> value;
+						it errs on the side of precision rather than memory efficiency. To fix this, all we have to do is add an 'f' to the
+						end of the decimal number to let the comuter know that the number should be treated as a <i>float</i>:
+						<br><code>float pi = 3.1415f;</code>
+					</p>
 
 					<br><h3>Other Variable Types</h3>
-					<li>char</li>
-					<li>bool</li>
+					<p>Apart from <i>string</i> and numerical variable types there are a couple of basic variable types that are commonly
+						used: <i>char</i> and <i>bool</i>.
+					</p>
+					<p>While a <i>string</i> contains a series of characters to form a line of text, a <i><b>char</b></i> is its simpler
+						counterpart, containing only one single character. That character can be any unicode value, including letters,
+						numbers and symbols. As you may recall, we put double quotes around our text when assigning a <i>string</i> value.
+						When assigning a <i>char</i> value, we use single quotes instead:
+						<br><code>char symbol = '♪';</code>
+					</p>
+					<p>Finally, a <i><b>bool</b></i> (or 'boolean') is a variable that can contain only one of two values: <i>true</i> or
+						<i>false</i>. This is very useful in a number of cases, for instance when you have a feature that can be turned
+						on and off:
+						<br><code>bool isMusicEnabled = true;</code>
+					</p>
+					<p>You can also assign a <i>true</i> or <i>false</i> value to the boolean by using a condition (like we saw when writing
+						'if' statements). For example, if we want to keep track of whether or not the player's name is Tina using the
+						condition <code>name == "Tina"</code>, but we don't want to use the processing power to calculate that condition
+						more than once, we can store it in a variable like so:
+						<br><code>bool isPlayerTina = name == "Tina";</code>
+						<br><i>TIP: If that line of code is visually confusing to you, you can also wrap the condition in parenthesis like
+							you would in an 'if' statement to make it visually separate, but this is optional.
+						</i>
+						<br><code>bool isPlayerTina = (name == "Tina");</code>
+					</p>
+					<p>Once you have stored a <i>true</i> or <i>false</i> value in a <i>bool</i>, you can use it in place of a condition in
+						an 'if' statement or anywhere else that a condition is used:
+<pre><code>if (isPlayerTina)
+{
+	Console.WriteLine("You are the chosen one!!!");
+}</code></pre>
+					</p>
 				</div>
 			</section>
 
