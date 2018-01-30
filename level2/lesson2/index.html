@@ -181,11 +181,103 @@
 				</div>
 			</section>
 
-			<!-- Converting Variable Types -->
-			<section id="converting" class="wrapper style3">
+			<!-- Comparison Operators -->
+			<section id="comparison" class="wrapper style3">
 				<div class="inner">
-					<h2>Converting Variable Types</h2>
+					<h2>Making Our Logic More Interesting With Operators</h2>
+					<p>So far our logic has been extremely simple, relying on setting variables and reacting if they are set to specific
+						values. However, we can have our program react to our data in much more interesting and nuanced ways by expanding
+						our repatoire of operators.
+					</p>
+					<p>An operator is a symbol that tells the computer what operation we want to perform using the data next to it. We
+						have already covered two operators in the previous lesson: the assignment operator (<code>=</code>) which takes
+						the value to the right of it and stores it in the variable to left left of it, and the equality comparison
+						operator (<code>==</code>), which compares the two values on both sides and tells us whether or not they are
+						equal as a boolean value (<i>true</i> or <i>false</i>).
+					</p>
+
+					<h3>Other Comparison Operators</h3>
+					<p>All comparison operators compare two values and give us a boolean value based on the relationship between them.
+						As such, these can all be used to write conditions for 'if' statements, among other things.
+					</p>
+					<li><b>Inequality</b> <code>!=</code> ... Opposite of <code>==</code>: returns <i>true</i> if the values on either
+						side are NOT equal.</li>
+					<li><b>Greater Than</b> <code>></code> ... Returns <i>true</i> if the value on the left is a larger numerical value
+						than the value on the right.</li>
+					<li><b>Less Than</b> <code><</code> ... Returns <i>true</i> if the value on the right is a larger numerical value
+						than the value on the left.</li>
+					<li><b>Greater Than Or Equal</b> <code>>=</code> ... Returns <i>true</i> if the value on the left is larger or equal
+						to the value on the right.</li>
+					<li><b>Less Than Or Equal</b> <code><=</code> ... Returns <i>true</i> if the value on the right is larger or equal to
+						the value on the left.</li>
+
+					<br><h3>Conditional Operators</h3>
+					<p>Sometimes we will want to base our decisions on more than a single condition. For example, say we want to give the
+						player special praise if their name was Tina AND they scored at least 100 points. We can join two conditions
+						together using the conditional 'and' operator, <code>&&</code>, and this will combine them into a single boolean
+						value that is <i>true</i> only if the two original conditions were BOTH true.
+<pre><code>if (isPlayerTina && score >= 100)
+{
+	Console.WriteLine("You are truly incredible, chosen one!!!");
+}</code></pre>
+					</p>
+					<p>Alternatively, you may have a special message to give to the player if their name is Tina OR they scored 100 or
+						more. For this we can use the the conditional 'or' operator, <code>||</code>. This behaves similarly to the 'and'
+						operator, but instead returns <i>true</i> if EITHER condition is true. In the following example, Tina will always
+						receive the special message no matter what, but non-Tinas can still get the message if they score high enough.
+<pre><code>if (isPlayerTina || score >= 100)
+{
+	Console.WriteLine("Wow, you are so amazing!");
+}</code></pre>
+					</p>
+
+					<br><h3>Arithmetic Operators</h3>
+					<p>Arithmetic operators are most commonly used for mathematical operations. For example, if we have an <i>int</i>
+						that we've name 'score', we can add 10 points to the player's score like so:
+						<br><code>score = score + 10;</code></p>
+					<p>Remember though that the operations aren't <i>always</i> mathematical: it depends on the types of values that the
+						operator is being used on. An example of this that we've already seen is adding two <i>string</i> values together
+						with the <code>+</code> operator.</p>
+					<p>The five arithmetic operators to remember are:</p>
+					<li><code>+</code>addition</li>
+					<li><code>-</code>subtraction</li>
+					<li><code>*</code>multiplication</li>
+					<li><code>/</code>division</li>
+					<li><code>%</code>modulo</li>
+					<br><p>While you are most likely familiar with the first four mathematical operations, you may not have heard of modulo
+						before. Simply put, modulo gives us the remainder of a division. For example, if we were to set an integer
+						variable like so:
+						<br><code>int remainder = 10 % 6;</code>
+						<br>...the variable's value would be set to 4, because 10 divided by 6 is 1 with a remainder of 4.
+					</p>
+				</div>
+			</section>
+
+			<!-- Converting Variable Types -->
+			<section id="converting" class="wrapper style2">
+				<div class="inner">
+					<h2>Converting Variable Values and Types</h2>
+					<p>Sometimes we will need to convert values from one type to another. There are a number of ways of doing this,
+						depending on the situation.</p>
+					<h3>Type-casting</h3>
+					<p>If the value type that you're converting from and the type you're converting to are similar enough, we can
+						simply ask the computer to temporarily treat the value as though it were of another type. We do this by
+						adding the type we want to convert to in parentheses immediately before the value that we want to convert.
+						For example, if we have the player's score stored in an <i>int</i>, we can temporarily treat it like a float
+						like so:
+						<br><code>(float)score</code>
+					</p>
+				</div>
+			</section>
+	
+			<!-- Loops -->
+			<section id="loops" class="wrapper style3">
+				<div class="inner">
+					<h2>Looping Logic</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+					<li>"while" loop</li>
+					<li>"do while" loop</li>
+					<li>"break" and "continue" statements</li>
 				</div>
 			</section>
 	
@@ -194,27 +286,6 @@
 				<div class="inner">
 					<h2>Scope</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
-				</div>
-			</section>
-
-			<!-- Comparison Operators -->
-			<section id="comparison" class="wrapper style3">
-				<div class="inner">
-					<h2>Comparison Operators</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
-					<li>==, !=, >, <, >=, <=</li>
-					<li>'toUpper' and 'toLower' for string comparisons</li>
-				</div>
-			</section>
-	
-			<!-- Loops -->
-			<section id="loops" class="wrapper style2">
-				<div class="inner">
-					<h2>Looping Logic</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
-					<li>"while" loop</li>
-					<li>"do while" loop</li>
-					<li>"break" and "continue" statements</li>
 				</div>
 			</section>
 
