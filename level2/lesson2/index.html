@@ -23,7 +23,7 @@
 		<div class="inner">
 			<nav>
 				<ul>
-					<li><b>Level 2 - Lesson 2</b><br><i>C# Fundamentals</i></li>
+					<li><b>Level 2 - Lesson 2</b><br><i>Intro to C#, Part 2</i></li>
 					<li><a href="#welcome">Lesson Summary</a></li>
 					<li><a href="#debugging">Debugging</a></li>
 					<li><a href="#types">Data Types</a></li>
@@ -46,7 +46,7 @@
 				<div class="inner">
 					<h2>Lesson 2: C# Fundamentals</h2>
 					<p>Last time, we started learning the absolute basics of the C# programming language, covering how to create a new
-						console applicaition in our IDEs, how to receive and store text input from the user and how to dsiplay different
+						console application in our IDEs, how to receive and store text input from the user and how to display different
 						messages depending on that input. Today we will be expanding on that base by learning more fundamental C# skills
 						such as:
 					</p>
@@ -122,7 +122,7 @@
 						of what types to use in a given situation.</p>
 					<h3>Numerical Variable Types</h3>
 					<p>Mathematical operations are very commonly needed when writing a program, so our numerical variable types will be
-						used very frequently. The three numerical types that we will dicuss for now are <i>int</i>, <i>float</i> and
+						used very frequently. The three numerical types that we will discuss for now are <i>int</i>, <i>float</i> and
 						<i>double</i>.
 					</p>
 					<p>An <i><b>int</b></i> (or integer) variable can store whole numbers, both positive an negative. <i>int</i> variables are
@@ -144,7 +144,7 @@
 						<br><code>float pi = 3.1415;</code>
 						<br>This is because when we write a decimal number in C#, the computer will assume that it is a <i>double</i> value;
 						it errs on the side of precision rather than memory efficiency. To fix this, all we have to do is add an 'f' to the
-						end of the decimal number to let the comuter know that the number should be treated as a <i>float</i>:
+						end of the decimal number to let the computer know that the number should be treated as a <i>float</i>:
 						<br><code>float pi = 3.1415f;</code>
 					</p>
 
@@ -189,7 +189,7 @@
 					<h2>Making Our Logic More Interesting With Operators</h2>
 					<p>So far our logic has been extremely simple, relying on setting variables and reacting if they are set to specific
 						values. However, we can have our program react to our data in much more interesting and nuanced ways by expanding
-						our repatoire of operators.
+						our repertoire of operators.
 					</p>
 					<p>An operator is a symbol that tells the computer what operation we want to perform using the data next to it. We
 						have already covered two operators in the previous lesson: the assignment operator (<code>=</code>) which takes
@@ -377,7 +377,7 @@ if (choice == "a")
 					<h2>Looping Logic</h2>
 					<p>Many programs, and certainly most games, will require sections of code to repeat on a loop. For example,
 						many games will put all of the player input reading, logic processing and graphical rendering into one
-						huge repeating block of code, with each repitition being one 'frame' of the game. For this lesson, we
+						huge repeating block of code, with each repetition being one 'frame' of the game. For this lesson, we
 						will just focus on two very simple types of loops: the 'while' loop and the 'do while' loop.
 					</p>
 					<h3>'while' Loop</h3>
@@ -385,7 +385,7 @@ if (choice == "a")
 						keyword followed by a condition in parentheses and a set of instructions surrounded by an opening and
 						closing curly brace. Just like an 'if' statement, the instructions inside of the 'while' loop will not
 						be executed unless the specified condition is true. <i>Unlike</i> an if statement, however, the set of
-						instructions will <i>continue to be exectuted over and over again until the condition is no longer
+						instructions will <i>continue to be executed over and over again until the condition is no longer
 						true.
 						</i>
 					</p>
@@ -410,7 +410,7 @@ while (counter < 10)
 					<h3>'do while' Loop</h3>
 					<p>The 'do while' loop works almost the same way as the 'while' loop with one big difference: the condition is
 						checked <i>after</i> executing the instruction block instead of before. This means that we are always
-						guaranteed to exectue the block at least once, even if the condition is false. A 'do while' loop starts
+						guaranteed to execute the block at least once, even if the condition is false. A 'do while' loop starts
 						with the word 'do' followed by the instruction block which is in turn followed by the condition in
 						parentheses and a semi-colon.
 					</p>
@@ -450,7 +450,38 @@ do
 			<section id="scope" class="wrapper style2">
 				<div class="inner">
 					<h2>Scope</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+					<p>As we learned previously, the computer gives us a dedicated chunk of memory to use every time we
+						declare a new variable. However, we eventually have to give that memory back when we don't need it
+						anymore so that the computer knows that it is allowed to give it to other programs, or to reuse it
+						for other new variables.</p>
+					<p>C# releases variables back to the computer's memory automatically for us, so it's important to
+						understand when we no longer have access to our variables. As a general rule, when we declare a
+						variable in our logic, it is only accessible within the instruction block that it was declared in
+						and other instruction blocks nested inside that block. This concept is know as 'scope'.
+					</p>
+<pre><code>static void Main()
+{
+	// declare a variable in the scope of the Main function
+	int testVariable1 = 1;
+
+	if (testVariable1 == 1)
+	{
+		// declare a variable in the scope of the 'if' statement
+		int testVariable2 = 2;
+
+		// testVariable1 and testVariable2 are BOTH accessible from here.
+	}
+
+	// testVariable1 is accessible from here, but testVariable2 no longer exists because it is OUT OF SCOPE.
+}
+</code></pre>
+					<p>As explained in the comments of the above code example, 'testVariable1' is accessible throughout the
+						entirety of the Main function, but testVariable2 is only accessible inside of the 'if' statement.
+						This is because testVariable1 was declared in the scope of the Main function while testVariable2
+						was declared in the scope of the 'if' statement. Because the 'if' statement exists in the scope of
+						the Main function, testVariable1 can be used inside the 'if' statement as well. When the 'if'
+						statement ends, testVariable2 goes out of scope and we can no longer use it.
+					</p>
 				</div>
 			</section>
 
@@ -461,7 +492,7 @@ do
 					<p>Either continue working on your text adventure or start a new one as you see fit. Try to incorporate as
 						many of the new concepts that we covered as you can! Try and get creative and use these features in
 						interesting or unexpected ways.</p>
-					<p>An example project will be added soon, so please check back!</p>
+					<p>An example project will be added soon, so please check back later!</p>
 				</div>
 			</section>
 
