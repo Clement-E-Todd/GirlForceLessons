@@ -26,11 +26,11 @@
 					<li><b>Level 2 - Lesson 2</b><br><i>C# Fundamentals</i></li>
 					<li><a href="#welcome">Lesson Summary</a></li>
 					<li><a href="#debugging">Debugging</a></li>
-					<li><a href="#types">More Variable Types</a></li>
-					<li><a href="#converting">Converting Variable Types</a></li>
+					<li><a href="#types">Data Types</a></li>
+					<li><a href="#operators">Operators</a></li>
+					<li><a href="#converting">Converting</a></li>
+					<li><a href="#loops">Loops</a></li>
 					<li><a href="#scope">Scope</a></li>
-					<li><a href="#comparison">Comparison Operators</a></li>
-					<li><a href="#loops">Looping Logic</a></li>
 					<li><a href="#homework">Homework</a></li>
 					<li><a href="../../#level2">Back to Lesson Directory</a></li>
 				</ul>
@@ -54,12 +54,12 @@
 						to see what it is doing
 					</a></li>
 					<li><a href="#types">More variable types that will let us store numerical values, conditional values and more</a></li>
-					<li><a href="#converting">How to convert values from one type to another</a></li>
-					<li><a href="#scope">The lifespan, or "scope" of our variables</a></li>
-					<li><a href="#comparison">More comparison operators (in addition to '==') that will allow us to write more interesting
+					<li><a href="#operators">More operators (in addition to '=' and '==') that will allow us to write more interesting
 						conditions
 					</a></li>
+					<li><a href="#converting">How to convert data values and types and various useful ways</a></li>
 					<li><a href="#loops">How to make sections of our code repeat or "loop" without writing them multiple times</a></li>
+					<li><a href="#scope">The lifespan, or "scope" of our variables</a></li>
 					<br><p>We will continue writing our code as a text adventure as we learn these skills. You can either expand upon the
 						adventure game that you wrote for the previous lesson's homework or start a new one as you see fit.
 					</p>
@@ -182,7 +182,7 @@
 			</section>
 
 			<!-- Comparison Operators -->
-			<section id="comparison" class="wrapper style3">
+			<section id="operators" class="wrapper style3">
 				<div class="inner">
 					<h2>Making Our Logic More Interesting With Operators</h2>
 					<p>So far our logic has been extremely simple, relying on setting variables and reacting if they are set to specific
@@ -277,8 +277,65 @@
 						<br><code>string scoreString = score.ToString();</code>
 					</p>
 
-					<h3>TryParse()</h3>
-					<p>TODO: Finish me!</p>
+					<h3>Parse() and TryParse()</h3>
+					<p>Just as the conversion from most data types to <i>string</i> is not possible with type casting, <i>string</i>
+						values usually cannot be converted to other data types using type casting either. Say that we want to ask
+						the user's age and write a special message if they are over 200. We already know that this will not work:
+<pre><code>string age = Console.ReadLine();
+	
+if (age > 200)
+{
+	Console.WriteLine("That's got to be a record or something!");
+}</code></pre>
+						We know that this will not work because a string is not a numerical data value, so it is not compatible with
+						the 'greater than' operator. However, we can convert the string that we get from <code>Console.ReadLine</code>
+						using the <code>Parse</code> function:
+<pre><code>string ageString = Console.ReadLine();
+int age = int.Parse(ageString);
+	
+if (age > 200)
+{
+	Console.WriteLine("That's got to be a record or something!");
+}</code></pre>
+						Now, if the user types a number using digits, it will first be stored in our <i>string</i> variable, 
+						'ageString'. Then, on the following line, we create a an <i>int</i> variable called 'age' and use the Parse
+						function to convert 'ageString' into an integer.</p>
+
+					<p>However, doing it this way has a serious problem: if the player types anything OTHER than digits, our app
+						will crash! The Parse function should only ever be used when you are 100% sure that the <i>string</i>
+						that you are converting contains only parsable characters. Fortunately, we also have the TryParse
+						function which, while slightly more complicated to use, is much safer.
+					</p>
+<pre><code>string ageString = Console.ReadLine();
+int age = 0;
+bool validInput = int.TryParse(ageString, out age);
+
+if (validInput)
+{
+	if (age > 200)
+	{
+		Console.WriteLine("That's got to be a record or something!");
+	}
+}
+else
+{
+	Console.WriteLine("I can't understand what you wrote!");
+}</code></pre>
+					<p>Let's break this code down to see what it's doing. Just like before, we start off by storing the user's
+						age input in a string variable, 'ageString'. Then, we declare a new integer called 'age', but this time we
+						give it a default value of 0 instead of parsing the text directly into it. The next line is where things
+						start to get a little more complex.
+					</p>
+					<p>Starting at the beginning of the line, we see the code, <code>bool validInput</code>. This means that we
+						are declaring a new boolean value. This boolean will have a value of 'true' if the string is successfully
+						parsed, or 'false' if the string contained invalid characters.
+					</p>
+					<p>On the right side of the assignment operator, we see the TryParse function,
+						<code>int.TryParse(ageString, out age)</code>. While the Parse function only required that we give it the
+						string we want parsed, the TryParse function also needs to know which int variable we want to save the
+						parsed number out to, hence the addition of <code>out age</code> (the 'out' keyword allows the function
+						to store data in a variable without the use of an assignment operator).
+					</p>
 
 					<h3>ToUpper() and ToLower()</h3>
 					<p>These functions do not convert the data's type, but <code>ToUpper</code> and <code>ToLower</code> are very
