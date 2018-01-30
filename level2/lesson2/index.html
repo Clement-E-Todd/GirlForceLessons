@@ -259,6 +259,7 @@
 					<h2>Converting Variable Values and Types</h2>
 					<p>Sometimes we will need to convert values from one type to another. There are a number of ways of doing this,
 						depending on the situation.</p>
+						
 					<h3>Type-casting</h3>
 					<p>If the value type that you're converting from and the type you're converting to are similar enough, we can
 						simply ask the computer to temporarily treat the value as though it were of another type. We do this by
@@ -266,6 +267,47 @@
 						For example, if we have the player's score stored in an <i>int</i>, we can temporarily treat it like a float
 						like so:
 						<br><code>(float)score</code>
+					</p>
+
+					<h3>ToString()</h3>
+					<p>If two data types are two different, type casting will not work.
+						Because we very often need to express data of all kinds as a string (for example, when writing data out in
+						the console), C# has a built-in function that can be used with almost any variable or literal value. To
+						convert your data to a <i>string</i> value, simply append <code>.ToString()</code> to it.
+						<br><code>string scoreString = score.ToString();</code>
+					</p>
+
+					<h3>TryParse()</h3>
+					<p>TODO: Finish me!</p>
+
+					<h3>ToUpper() and ToLower()</h3>
+					<p>These functions do not convert the data's type, but <code>ToUpper</code> and <code>ToLower</code> are very
+						useful for processing string data. When they are appended to the end of a string variable or value, they
+						give us a new string value that casts all of the letters in the original string to upper case or lower
+						case respectively. Say that our player has given themselves the name "Andrea". If we write the name 
+						variable out to the console with <code>.ToUpper()</code> appended to it like so:
+						<br><code>Console.WriteLine(name.ToUpper());</code>
+						<br>...then we will see "ANDREA" written out to the console instead of the original capitalization. This
+						feature can also be very handy to make our handling of user input in a text adventure more versatile. Say,
+						for instance, we have just described a scenario to the player and given them three options of what they
+						can do, each represented by a letter. We are expecting them to type 'a', 'b' or 'c', but what if they type
+						'A', 'B' or 'C' instead? We <i>could</i> simply use the conditional 'or' operator to check for both the
+						lower case and upper case version of the input, like so:
+<pre><code>string choice = Console.ReadLine();
+
+if (choice == "a" || choice == "A")
+{
+	Console.WriteLine("You chose the first option!");
+}</code></pre>
+						...but that means more typing for us and more processing time for the computer, especially if you've given
+						the player a lot of options. Instead, we can simply convert the user's input to lower case up front, and
+						that way we KNOW that we're not dealing with upper case text any time we reference the variable.
+<pre><code>string choice = Console.ReadLine().ToLower();
+
+if (choice == "a")
+{
+	Console.WriteLine("You chose the first option!");
+}</code></pre>
 					</p>
 				</div>
 			</section>
