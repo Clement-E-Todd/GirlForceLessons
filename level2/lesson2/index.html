@@ -375,10 +375,74 @@ if (choice == "a")
 			<section id="loops" class="wrapper style3">
 				<div class="inner">
 					<h2>Looping Logic</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
-					<li>"while" loop</li>
-					<li>"do while" loop</li>
-					<li>"break" and "continue" statements</li>
+					<p>Many programs, and certainly most games, will require sections of code to repeat on a loop. For example,
+						many games will put all of the player input reading, logic processing and graphical rendering into one
+						huge repeating block of code, with each repitition being one 'frame' of the game. For this lesson, we
+						will just focus on two very simple types of loops: the 'while' loop and the 'do while' loop.
+					</p>
+					<h3>'while' Loop</h3>
+					<p>The 'while' loop looks and functions almost exactly like an 'if' statement; it starts with the 'while'
+						keyword followed by a condition in parentheses and a set of instructions surrounded by an opening and
+						closing curly brace. Just like an 'if' statement, the instructions inside of the 'while' loop will not
+						be executed unless the specified condition is true. <i>Unlike</i> an if statement, however, the set of
+						instructions will <i>continue to be exectuted over and over again until the condition is no longer
+						true.
+						</i>
+					</p>
+<pre><code>int counter = 0;
+
+while (counter < 10)
+{
+	counter = counter + 1;
+
+	Console.WriteLine(counter);
+}</code></pre>
+					<p>In the above example, the instructions inside of the loop will be executed 10 times, writing the numbers
+						1 through 10 out to the console window. Then, the condition <code>counter < 10</code> will no longer be
+						true, so the program will progress past the loop.
+					</p>
+					<p><i>WARNING!!! It is a very easy mistake to create an 'infinite loop', which is to say a loop whose condition
+						will never become false. For example, in the above code, if we forgot to add 1 to the 'counter' variable
+						inside the loop, 'counter' would never reach 10. When this happens, your loop will never stop running and
+						you app will freeze!
+					</i></p>
+
+					<h3>'do while' Loop</h3>
+					<p>The 'do while' loop works almost the same way as the 'while' loop with one big difference: the condition is
+						checked <i>after</i> executing the instruction block instead of before. This means that we are always
+						guaranteed to exectue the block at least once, even if the condition is false. A 'do while' loop starts
+						with the word 'do' followed by the instruction block which is in turn followed by the condition in
+						parentheses and a semi-colon.
+					</p>
+					<p>This can really come in handy, especially in the context of a text adventure. So far in our text adventures,
+						if the player entered invalid input, we just had to roll with it. However, we can use a 'do while' loop to
+						continually ask for user input until they type something valid:
+					</p>
+<pre><code>Console.WriteLine("You reach a fork in the road. Which way do you go?");
+Console.WriteLine("a) Left");
+Console.WriteLine("b) Right");
+
+bool validInputReceived = false;
+
+do
+{
+	string userInput = Console.ReadLine().ToLower();
+
+	if (userInput == "a")
+	{
+		Console.WriteLine("You find a treasure chest!");
+		validInputReceived = true;
+	}
+	else if (userInput == "b")
+	{
+		Console.WriteLine("You find a brand new car!");
+		validInputReceived = true;
+	}
+	else
+	{
+		Console.WriteLine("Invalid input, please try again!");
+	}
+} while (validInputReceived == false);</code></pre>
 				</div>
 			</section>
 	
@@ -394,7 +458,10 @@ if (choice == "a")
 			<section id="homework" class="wrapper style3">
 				<div class="inner">
 					<h2>Homework</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquet metus odio, quis hendrerit lectus facilisis ut. Quisque in nulla nec nisi maximus auctor. Suspendisse bibendum facilisis nisl sit amet venenatis. Etiam iaculis luctus leo tempor malesuada. Duis dignissim, magna a faucibus scelerisque, diam urna congue sapien, sit amet mollis orci lacus at lectus. Vestibulum eget dui nulla. Maecenas vehicula aliquam lectus iaculis tincidunt. Cras posuere purus gravida ante semper, id molestie lectus mollis. Maecenas condimentum malesuada arcu, in sagittis mi pharetra a. Aenean eu nisl quis eros mollis egestas. Quisque sit amet nulla dolor. Sed dapibus, erat convallis varius lacinia, sapien mauris elementum lacus, quis eleifend nisl ipsum quis lorem.</p>
+					<p>Either continue working on your text adventure or start a new one as you see fit. Try to incorporate as
+						many of the new concepts that we covered as you can! Try and get creative and use these features in
+						interesting or unexpected ways.</p>
+					<p>An example project will be added soon, so please check back!</p>
 				</div>
 			</section>
 
