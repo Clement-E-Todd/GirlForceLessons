@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Girl Force - Level 2 Lessons</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><b>Level 2 - Lesson 3</b><br><i>Object-Oriented Programming</i></li>
+					<li><a href="#oop">Object-Oriented Programming</a></li>
+					<li><a href="#writeClass">Writing Classes</a></li>
+					<li><a href="#instantiate">Instantiating a Class</a></li>
+					<li><a href="#memberAccess">Member Access</a></li>
+					<li><a href="#writeFunction">Writing Functions</a></li>
+					<li><a href="#homework">Homework</a></li>
+					<li><a href="../../#level2">Back to Lesson Directory</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+			<!-- Object-Oriented Programming -->
+			<section id="oop" class="wrapper style2">
+				<div class="inner">
+					<h2>Lesson 3: Object-Oriented Programming</h2>
+					<p>C# is a programming language built on the idea of "Object-Oriented Programming". An object-oriented language works
+						by allowing the programmer to describe concepts to the computer by defining "classes". Once the programmer has
+						described something to the computer, they can create "instances" of the class and store them inside variables. For
+						example, you might create a class to define what an "enemy" is in your game, and then create several enemy
+						instances to team up against your player.
+					</p>
+					<p>A class can represent anything, from a physical object like a car to a more abstract concept like an emotional
+						state (which could be used by an artificial intelligence system, for example). In the C# programs we have written
+						so far, we have already created one class: the class which represents the program itself and contains the Main
+						function. Every program in C# must have at least this one class. We have also been using the "Console" class which
+						we have access to thanks to the System library; this class defines the concept of the console to our program, which
+						allows us to read and write console text.
+					</p>
+					<p>Let’s create a class that will represent a character (as in a person, not to be confused with with a char variable
+						which represents a letter or number). First, we need to create a new C# file where we will write this class.
+					</p>
+					<b>[TODO: Show how to create a new file in both IDEs. As needed, either have students erase contents of file or observe
+						that this is what they’re given by default.]
+					</b>
+<pre><code>class Character
+{
+	
+}</code></pre>
+					<p>There are three parts to this example of an empty class declaration statement: the keyword "class", which lets the
+						computer know that we are about to begin a class description, the name of the concept that the class is describing
+						(in this case, "Character"), and the body of the description (which is currently empty) between curly braces.
+					</p>
+				</div>
+			</section>
+	
+			<!-- Writing a Class -->
+			<section id="writeClass" class="wrapper style3">
+				<div class="inner">
+					<h2>Writing a Class</h2>
+					<p>So now we have our empty blueprint, all ready for us to begin describing what a "Character" is. But how do we go
+						about describing a concept like that to a computer, exactly?
+					</p>
+					<p>Let’s start with a couple of surface-level things that all characters would typically have: a name and an age.
+						Remember, a class is a blueprint so we don’t want to write a specific name and age; we simply want to let the
+						computer know that all characters in our program will have a name and an age. We do this by defining a variable
+						for each of those pieces of information inside our class:
+					</p>
+<pre><code>class Character
+{
+	string name;
+	int age;
+}</code></pre>
+					<p>With this addition, the computer now knows that it has to create a new string variable and a new int variable
+						every time a new character is created. Any data defined inside of a class is called a "member" of that class,
+						so the name and int variables that we just created would be referred to as "member variables" of the "Character"
+						class.
+					</p>
+
+					<h3>Member Functions (Methods)</h3>
+					<p>It’s not just variables that can be members of a class, however. We can also write instruction sets known as
+						"functions" that can be executed whenever we like. A member function is more commonly referred to as a "method"
+						in C#, though the terms "function" and "method" can more or less be used interchangeably in this language.
+					</p>
+					<p>We have already written one method in all of or previous programs: the Main function, which is a member of our
+						Program class. The Main function is an instruction set that is executed whenever the program is run, and the
+						program ends once the end of the Main function is reached.
+					</p>
+					<p>When we are describing something by writing a class, we can add methods to the class to define things that that
+						thing can do. For example, let’s add a method to our Character class that will allow our characters to introduce
+						themselves. We will dive more deeply into how functions are written later in this lesson.
+					</p>
+<pre><code>class Character
+{
+	string name;
+	int age;
+
+	void Talk()
+	{
+		Console.WriteLine("Hello! My name is " + name + ".");
+		Console.WriteLine("I am " + age.ToString() + " years old!");
+	}
+}</code></pre>
+				</div>
+			</section>
+	
+			<!-- Instantiating a Class -->
+			<section id="instantiate" class="wrapper style2">
+				<div class="inner">
+					<h2>Instantiating a Class</h2>
+					<p>Now that we have a minimal but usable blueprint describing what a character is, let’s use that class to create
+						our first character! We will do this in the Main function in our Program class.
+					</p>
+					<p>When we define a class, that class can be used as a variable type. So just as we would create a string-type
+						variable using the word "string", we start our variable declaration statement with "Character" to let the
+						computer know that we need a Character-type variable.
+					</p>
+					<code>Character myCharacter;</code>
+					<p>We can create a new character and store it inside that variable using the keyword "new" followed by the name of
+						the class and opening and closing parentheses:
+					</p>
+					<code>myCharacter = new Character();</code>
+					<p>Don’t forget: we can simplify the variable declaration statement and the assignment statement into one statement
+						to make our code less cluttered.
+					</p>
+					<code>Character myCharacter = new Character();</code>
+				</div>
+			</section>
+
+			<!-- Member Access -->
+			<section id="memberAccess" class="wrapper style3">
+				<div class="inner">
+					<h2>Member Access</h2>
+					<p>Now that we’ve got our first character, let’s try to make them talk! In C#, the period symbol is called the "member
+						access operator", and as its name implies it is an operator that allows us to access the members of an object! We
+						have already created a function called "Talk" as a member of the Character class, so let’s try and access it!
+					</p>
+					<p>To use the member access operator, start writing the name of the object whose member you want to access (which would
+						be "myCharacter" in this case) followed by the operator and the name of the member you want to access. In this case,
+						because we’re trying to call a function, we also have to follow this with opening and closing parentheses; these
+						are used to execute a function.							
+					</p>
+					<code>myCharacter.Talk();</code>
+					<p>You’ll notice that we can’t run our program now, because the line of code that we just wrote is throwing an error.
+						If we check the error, we will see that is says "Character.Talk() is inaccessible due to its protection level".
+						What does this mean?						
+					</p>
+					<p>By default, all of a class’s members are private. This means that the member can only be used inside the class
+						itself: we are not allowed to access it from outside like we are trying to do now.						
+					</p>
+					<p>We can fix this by switching back over to our Character class script and modifying the declaration of the Talk
+						method to make it publically accessible. We do this by adding the "public" keyword (which is known as an "access
+						modifier") to the beginning of our method declaration:
+					</p>
+<pre><code>public void Talk()
+{
+	Console.WriteLine("Hello! My name is " + name + ".");
+	Console.WriteLine("I am " + age.ToString() + " years old!");
+}</code></pre>
+					<p>With that, the error is fixed and we can run the program again. When we do, we will see the following written out
+						to the screen: "Hello! My name is . I am 0 years old!"
+					</p>
+					<p>Obviously, this doesn’t look correct. This is because we have left the name and age variables at their default
+						values, which are an empty string and the number 0 respectively. For now, let’s also add the public access modifier
+						to each of these variables:
+					</p>
+<pre><code>public string name;
+public int age;</code></pre>
+					<p>...and then, in the Main function, assign a value to each variable before calling the Talk function. You can assign
+						these variables any value you like.
+					</p>
+<pre><code>myCharacter.name = "Melody";
+myCharacter.age = 22;
+myCharacter.Talk();
+</code></pre>
+					<p>When we run the program in this example, it should now say "Hello! My name is Melody. I am 22 years old!"
+					</p>
+				</div>
+			</section>
+
+			<!-- Writing a Function -->
+			<section id="writeFunction" class="wrapper style2">
+				<div class="inner">
+					<h2>Writing a Function</h2>
+					<p>So we’ve written a function that allows our characters to talk, but we haven’t gone over what each of the words in the function declaration mean. A function declaration must include four things: a “return type”, the function’s name, the “parameter list” and the body of the function between curly braces.
+					</p>
+					<p>The first thing we see in our function declaration is the return type, which is either a data type (ie. string, int, bool, Character…) or the keyword “void”. Many functions “return” data to us when they are called: for example, the ReadLine function in the Console class returns a string to us containing the text that the user typed, which we can then store into a string variable. Other functions, like our Talk method, do not need to return any data however. In these cases, instead of specifying a data type, we use the keyword “void”, which means “no data type”.
+					</p>
+					<p>Let’s add a non-void function to our Character class that lets us know whether the character is an adult or not. This method will return a boolean that represents whether or not the character has reached adulthood based on their age (we will consider an adult to be 18 or over):
+					</p>
+
+<pre><code>bool IsAdult()
+{
+	bool isAdult = (age >= 18);
+	return isAdult;
+}</code></pre>
+						
+					<p>Notice the keyword “return” inside of the method’s body. The “return” keyword ends the execution of the function and returns the data that follows it. The keyword is not required in functions with a void return type, but it can be used to end a function early. For example, we can add a return statement to the beginning of our Talk function to prevent the character from revealing their name and age if they are not adults:
+					</p>
+						
+<pre><code>public void Talk()
+{
+	if (IsAdult() == false)
+	{
+		Console.WriteLine(“I’m not allowed to talk to strangers!”);
+	return;
+	}
+
+	Console.WriteLine(“Hello! My name is “ + name + “.”);
+	Console.WriteLine(“I am “ + age.ToString() + “ years old!”);
+}</code></pre>
+						
+					<p>The “parameter list” in a function declaration is a list of variables that the function uses which we have to set whenever the function is called. These parameters, or “arguments” as they are often called, are declared inside the parentheses that immediately follow the function’s name. If the function has multiple parameters, they are separated by commas. As an example, let’s add a function that determines whether or not the character’s age is within a certain range:
+					</p>
+
+<pre><code>public bool IsAgeInRange(int minimum, int maximum)
+{
+	bool isAgeInRange = (age >= minimum && age <= maximum);
+	return isAgeInRange;
+}</code></pre>
+						
+					<p>This functions is very similar to the IsAdult method we wrote before, but this time it compares the character’s age against two externally-provided integers instead of the hard-coded value of 18. We can call this function from our Main function like so (note how we pass integer values in between the parentheses to set the two arguments):
+					</p>
+
+					<code>bool isInTwenties = myCharacter.IsAgeInRange(20, 29);</code>
+						
+					<p>There is a special type of method called a “constructor” that is called when we create a new instance of a class using the “new” keyword. A constructor’s declaration differs from other function declarations in two ways: first, it has no return type, and second, its name has to be identical to the class that it is in. We can add a constructor to our character class like so:
+					</p>
+
+<pre><code>public Character()
+{
+	Console.WriteLine(“A new Character was created!”);
+}</code></pre>
+						
+					<p>Now, when we run our game, we will see the text, “A new Character was created!” written in the console before everything else. Instead of simply writing a message when the Character class is instantiated, let’s change it so that the character’s data (their name and age) are initialized here. Remove the call to Console.WriteLine in the constructor, then add the following to the parameter list and the body of the constructor:
+					</p>
+
+<pre><code>public Character(string name, int age)
+{
+	this.name = name;
+	this.age = age;
+}</code></pre>
+						
+					<p>You may be wondering what the word “this” is doing here. In this example, we’ve created new variables called “name” and “age” in the parameter list while we already have member variables with exactly the same names defined at the top of the class. The versions of the variables that are created in the parameter list are local to the function - that is to say, they only exist inside the function that they are declared in.
+					</p>
+					<p>If we type “name” in this function, the computer will assume that we mean the local variable, not the member variable. In order to access the member variable with the same name, we need to use the member access operator after the keyword, “this”. So when we type this.age = age; what we are really doing is taking the value that was passed in as an argument and storing it in the member variable with the same name. To test this, let’s go back to our main function and delete the following two lines:
+					</p>
+
+<pre><code>myCharacter.name = “Melody”;
+myCharacter.age = 22;</code></pre>
+						
+					<p>Then, let’s add parameters to the line where we are creating a new character:
+					</p>
+					
+					<code>Character myCharacter = new Character(“Christie”, 30);</code>
+					
+					<p>Now when we run the program, it should say “Hello! My name is Christie. I am 30 years old!”
+					</p>
+				</div>
+			</section>
+
+			<!-- Homework -->
+			<section id="homework" class="wrapper style3">
+				<div class="inner">
+					<h2>Homework</h2>
+					<p>Either continue working on your text adventure or start a new one as you see fit. Try to incorporate as
+						many of the new concepts that we covered as you can! Try and get creative and use these features in
+						interesting or unexpected ways.</p>
+					<p>An example project will be added soon, so please check back later!</p>
+				</div>
+			</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Girl Force 2018. All rights reserved.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
